@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      vm: "",
+      vm: this.value,
       init: false
     };
   },
