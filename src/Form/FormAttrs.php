@@ -31,5 +31,4 @@ class FormAttrs
     public $onlyUpdateButtonName = "保存";
     public $backButtonName = "返回";
     public $buttonWidth;
-
 }

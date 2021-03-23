@@ -34,7 +34,6 @@ class AdminController extends Controller
 
     public function edit($id, Content $content)
     {
-        // echo 111;
         //可以重写这里，实现自定义布局
         $content->body($this->form(true)->edit($id))->className("m-10");
         //这里必须这样写

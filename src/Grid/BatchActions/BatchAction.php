@@ -17,7 +17,6 @@ class BatchAction extends BaseAction
     protected $requestMethod = "get";
     protected $keys = "selectionKeys";
     protected $message;
-
     public $hideAttrs = ['keys', 'resource'];
 
     public function __construct($content)

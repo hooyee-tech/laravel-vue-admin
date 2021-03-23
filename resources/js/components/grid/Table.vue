@@ -5,8 +5,8 @@
       :is="attrs.top.componentName"
       :attrs="attrs.top"
     />
-    <el-card
-        shadow="never"
+    <el-card 
+        shadow="never" 
         :body-style="{ padding: 0 }">
       <div class="grid-top-container">
         <div class="grid-top-container-left">
@@ -137,8 +137,7 @@
           :default-expand-all="attrs.attributes.defaultExpandAll"
           @sort-change="onTableSortChange"
           @selection-change="onTableselectionChange"
-          auto-fit-column
-          :row-class-name="tableRowClassName">
+        >
           <el-table-column
             v-if="attrs.attributes.selection"
             align="center"
@@ -234,9 +233,6 @@ import Actions from "./Actions/Index";
 import BatchActions from "./BatchActions/Index";
 import ItemDiaplsy from "../form/ItemDiaplsy";
 import DialogForm from "./DialogForm";
-import Vue from 'vue'
-import kzTable from "@kuaizi/kz-table";
-Vue.use(kzTable)
 export default {
   components: {
     ColumnDisplay,

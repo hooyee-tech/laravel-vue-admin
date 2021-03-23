@@ -52,7 +52,7 @@ class AuthController extends AdminController
     {
         $this->loginValidator($request->all())->validate();
 
-        $credentials = $request->only([$this->username(), 'password']);
+        $credentials = $request->only([$this->username(), 'password','status']);
         $remember = $request->get('remember', false);
 
         if ($this->guard()->attempt($credentials, $remember)) {

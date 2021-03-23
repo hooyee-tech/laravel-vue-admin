@@ -90,5 +90,4 @@ class Link extends GridComponent
         return $this;
     }
 
-
 }

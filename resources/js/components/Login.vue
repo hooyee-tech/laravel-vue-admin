@@ -77,7 +77,8 @@ export default {
       form: {
         username: "",
         password: "",
-        remember: true
+        remember: true,
+        status:1
       },
       loading: false,
       ruleValidate: {

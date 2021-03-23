@@ -10,6 +10,8 @@ use SmallRuralDog\Admin\Components\Grid\Avatar;
 use SmallRuralDog\Admin\Components\Grid\Tag;
 use SmallRuralDog\Admin\Form;
 use SmallRuralDog\Admin\Grid;
+use SmallRuralDog\Admin\Components\Form\Radio;
+use SmallRuralDog\Admin\Components\Form\RadioGroup;
 
 class UserController extends AdminController
 {
@@ -33,6 +35,9 @@ class UserController extends AdminController
         $grid->column('username', "用户名");
         $grid->column('name', '用户昵称');
         $grid->column('roles.name', "角色")->component(Tag::make()->effect('dark'));
+        $grid->column('status','状态')->customValue(function ($row, $value) {
+            return $value==1?"<span style='color:green;'>启用</span>":"<span style='color:red;'>禁用</span>";
+        });
         $grid->column('created_at');
         $grid->column('updated_at');
 
@@ -71,8 +76,15 @@ class UserController extends AdminController
         $form->item('permissions', '权限')->component(Select::make()->clearable()->block()->multiple()->options($permissionModel::all()->map(function ($role) {
             return SelectOption::make($role->id, $role->name);
         })->toArray()));
+        $form->item('status', '状态')->component(RadioGroup::make(1, [
+            Radio::make(1, "启用"),
+            Radio::make(2, "禁用")
+        ]));
 
         $form->saving(function (Form $form) {
+            if ($form->username == 'admin' && $form->status == '2') {
+                return \Admin::responseError("admin不能被禁用");
+            }
             if ($form->password) {
                 $form->password = bcrypt($form->password);
             }

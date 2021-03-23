@@ -231,7 +231,4 @@ class Upload extends Component
         $this->callback = $callback;
         return $this;
     }
-
-
-
 }

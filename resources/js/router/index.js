@@ -33,7 +33,7 @@ async function beforeEach(to, from, next) {
     }
     if (components[components.length - 1].loading !== false) {
         router.app.$nextTick(() => {
-
+            
         })
     }
     next()
@@ -42,7 +42,7 @@ async function beforeEach(to, from, next) {
 async function afterEach(to, from, next) {
     await router.app.$nextTick()
 
-
+   
 
     router.app.$bus.emit('route-after', to);
 }
